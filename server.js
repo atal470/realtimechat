@@ -1,3 +1,4 @@
+const cors=require("cors");
 const io = require("socket.io")(3000,{
     cors:{
         origin:"*",
@@ -6,6 +7,7 @@ const io = require("socket.io")(3000,{
 
 
 const users={};
+app.use(cors());
 
 io.on('connection', socket => {
     socket.on('new-user',nam=>{
